@@ -1,9 +1,12 @@
 import Image from 'next/image';
+import React from 'react';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import styles from '../styles/Example.module.css';
 
 export default function Example() {
+  const [vol, setVol] = React.useState(50);
+
   return (
     <div className={styles.container}>
       <Header />
@@ -12,11 +15,16 @@ export default function Example() {
         <div className="dark: space-y-8 bg-gray-900 md:p-2">
           <div className="w-96 rounded shadow">
             <label htmlFor="default-range" className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-              Default range
+              Volume
             </label>
             <input
               id="default-range"
               type="range"
+              value={vol}
+              onChange={({ target }) => {
+                const v = Number(target?.value ?? 0);
+                setVol(v);
+              }}
               className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-200 dark:bg-gray-700"
             />
 
