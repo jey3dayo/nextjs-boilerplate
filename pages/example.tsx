@@ -48,9 +48,9 @@ export default function Example() {
             </div>
           </figure>
         </div>
-      </main >
+      </main>
 
       <Footer />
-    </div >
+    </div>
   );
 }
