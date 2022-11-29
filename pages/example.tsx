@@ -3,17 +3,27 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import styles from '../styles/Example.module.css';
 
-export default function sample() {
+export default function Example() {
   return (
     <div className={styles.container}>
       <Header />
 
-
       <main className={styles.main}>
         <div className="dark: space-y-8 bg-gray-900 md:p-2">
           <div className="w-96 rounded shadow">
-            <label htmlFor="default-range" className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Default range</label>
-            <input id="default-range" type="range" className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-200 dark:bg-gray-700" />
+            <label htmlFor="default-range" className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+              Default range
+            </label>
+            <input
+              id="default-range"
+              type="range"
+              className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-200 dark:bg-gray-700"
+            />
+
+            <div className="grid w-96 grid-cols-2 gap-x-6">
+              <button className={`${styles.btn} ${styles['btn--secondary']} hover:bg-green-400`}>Decline</button>
+              <button className={`${styles.btn} ${styles['btn--primary']} hover:bg-green-400`}>Accept</button>
+            </div>
           </div>
 
           <figure className="rounded-xl bg-slate-100 p-8 dark:bg-slate-800 md:flex md:p-0">
@@ -38,9 +48,9 @@ export default function sample() {
             </div>
           </figure>
         </div>
-      </main>
+      </main >
 
       <Footer />
-    </div>
+    </div >
   );
 }
