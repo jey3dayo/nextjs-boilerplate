@@ -8,9 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "lint:fix": "next lint --fix",
     "prettier": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json,css}'",
-    "eslint": "eslint . --cache --fix --ext .js,.jsx,.ts,.tsx",
-    "format": "yarn eslint && yarn prettier"
+    "format": "yarn lint:fix && yarn prettier"
   },
   "author": "https://github.com/jey3dayo/attendance-record",
   "license": "UNLICENSED",
