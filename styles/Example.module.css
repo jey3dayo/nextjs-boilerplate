@@ -103,12 +103,21 @@
 
 .btn {
   @apply rounded-lg p-3 text-base font-medium;
+  transition: 1.0s;
 }
 
 .btn--primary {
   @apply bg-sky-500 text-white;
 }
+.btn--primary:hover {
+  /* background: color(theme('colors.sky.500') whiteness(30%)); */
+  /* @apply bg-sky-500/80; */
+  @apply bg-sky-400;
+}
 
 .btn--secondary {
-  @apply bg-slate-100 text-slate-900;
+  @apply bg-slate-300 text-slate-900;
+}
+.btn--secondary:hover {
+  @apply bg-slate-100;
 }
