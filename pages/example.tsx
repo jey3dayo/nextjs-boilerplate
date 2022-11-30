@@ -29,8 +29,8 @@ export default function Example() {
             />
 
             <div className="grid w-96 grid-cols-2 gap-x-6">
-              <button className={`${styles.btn} ${styles['btn--secondary']} hover:bg-green-400`}>Decline</button>
-              <button className={`${styles.btn} ${styles['btn--primary']} hover:bg-green-400`}>Accept</button>
+              <button className={[styles.btn, styles['btn--secondary'], 'hover:bg-green-400'].join(' ')}>Decline</button>
+              <button className={[styles.btn, styles['btn--primary'], 'hover:bg-green-400'].join(' ')}>Accept</button>
             </div>
           </div>
 
