@@ -103,7 +103,7 @@
 
 .btn {
   @apply rounded-lg p-3 text-base font-medium;
-  transition: 1.0s;
+  transition: 1s;
 }
 
 .btn--primary {
