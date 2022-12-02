@@ -1,8 +1,8 @@
 import { ReactElement } from 'react';
 import useSWR from 'swr';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import { fetcher } from '../lib/fetcher';
+import Footer from 'components/Footer';
+import Header from 'components/Header';
+import { fetcher } from 'lib/fetcher';
 
 type LayoutProps = Required<{
   readonly children: ReactElement;

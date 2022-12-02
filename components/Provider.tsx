@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
-import StateProvider from './StateProvider';
-import TrackProvider from './TrackProvider';
+import StateProvider from 'components/StateProvider';
+import TrackProvider from 'components/TrackProvider';
 
 export default function Provider({ children }: { children: ReactNode }) {
   return (
