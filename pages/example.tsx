@@ -1,8 +1,8 @@
 import type { NextPageWithLayout } from 'next';
 import Image from 'next/image';
 import { useState } from 'react';
+import Layout from '../components/Layout';
 import Provider from '../components/Provider';
-import Layout from '../layout/Layout';
 import styles from '../styles/Example.module.css';
 
 const Example: NextPageWithLayout = () => {
