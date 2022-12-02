@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
+import { RecoilRoot } from 'recoil';
 
 export default function StateProvider({ children }: { children: ReactNode }) {
-  return <>{children}</>;
+  return <RecoilRoot>{children}</RecoilRoot>;
 }
