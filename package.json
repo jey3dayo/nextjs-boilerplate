@@ -15,6 +15,15 @@
   "author": "https://github.com/jey3dayo/attendance-record",
   "license": "UNLICENSED",
   "homepage": "https://example.com",
+  "keywords": [
+    "typescript",
+    "react",
+    "next.js",
+    "tailwindcss",
+    "recoil",
+    "eslint",
+    "prettier"
+  ],
   "devDependencies": {
     "autoprefixer": "^10.4.13",
     "eslint": "8.28.0",
