@@ -40,6 +40,7 @@ const Example: NextPageWithLayout = () => {
               alt=""
               width="384"
               height="512"
+              priority
             />
             <div className="space-y-4 pt-6 text-center md:p-8 md:text-left">
               <blockquote>
