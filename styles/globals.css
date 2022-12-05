@@ -3,6 +3,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --border-color-white: #eaeaea;
+  --border-color-black: #222;
+}
+
 html,
 body {
   padding: 0;

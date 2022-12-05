@@ -1,6 +1,8 @@
+const palette = require('tailwindcss/colors');
+
 const colors = {
-  primary: '#408E2B',
-  secondary: '#FEFB54',
+  primary: palette.teal['700'],
+  secondary: palette.yellow['200'],
 };
 
-module.exports = colors;
+module.exports = (colors.__esModule ? colors : { default: colors }).default;

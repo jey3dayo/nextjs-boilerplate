@@ -1,29 +1,14 @@
 .footer {
   display: flex;
   flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border-color-black);
   justify-content: center;
   align-items: center;
-}
-
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
-
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
   .footer {
-    border-color: #222;
-  }
-  .logo img {
-    filter: invert(1);
+    border-color: var(--border-color-white);
   }
 }
