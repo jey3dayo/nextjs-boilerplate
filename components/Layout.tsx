@@ -1,6 +1,7 @@
 import { ReactElement } from 'react';
 import useSWR from 'swr';
 import Footer from 'components/Footer';
+import Head from 'components/Head';
 import Header from 'components/Header';
 import Loading from 'components/Loading';
 import { fetcher } from 'lib/fetcher';
@@ -15,6 +16,7 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <>
+      <Head />
       <Header />
       {data ? children : <Loading />}
       <Footer />
