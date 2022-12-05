@@ -1,6 +1,6 @@
 import { Bars as Loader } from 'react-loader-spinner';
-import styles from 'styles/Example.module.css';
-import { palette } from 'styles/index';
+import styles from 'src/styles/Example.module.css';
+import { palette } from 'src/styles/index';
 
 const color = palette.primary;
 const size = 80;

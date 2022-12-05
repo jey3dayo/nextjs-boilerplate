@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { sleep } from 'lib/sleep';
+import { sleep } from 'src/lib/sleep';
 
 type Data = {
   name: string;
