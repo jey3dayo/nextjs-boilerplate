@@ -1,4 +1,8 @@
 /** @type {import('tailwindcss').Config} */
+const { resolve } = require('path');
+const colorsPath = resolve(__dirname, 'styles/colors.ts');
+const colors = require(colorsPath);
+
 module.exports = {
   module: 'jit',
   darkMode: 'media',
@@ -10,7 +14,9 @@ module.exports = {
     },
   },
   theme: {
-    extend: {},
+    extend: {
+      colors: colors,
+    },
   },
   plugins: [],
 };
