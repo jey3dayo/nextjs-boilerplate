@@ -13,3 +13,7 @@ declare module 'next/app' {
     Component: NextPageWithLayout<P>;
   };
 }
+
+export type ReactProps = Required<{
+  readonly children: ReactElement;
+}>;
