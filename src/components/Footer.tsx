@@ -1,5 +1,5 @@
-import { appName } from 'src/config/index';
-import styles from 'src/styles/Footer.module.css';
+import { appName } from '@/config/index';
+import styles from '@/styles/Footer.module.css';
 
 export default function Footer() {
   return (

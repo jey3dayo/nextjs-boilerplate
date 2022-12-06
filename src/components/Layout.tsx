@@ -1,9 +1,10 @@
 import useSWR from 'swr';
-import Footer from 'src/components/Footer';
-import Head from 'src/components/Head';
-import Header from 'src/components/Header';
-import Loading from 'src/components/Loading';
-import { fetcher } from 'src/lib/fetcher';
+import { ReactProps } from '@/@types/index';
+import Footer from '@/components/Footer';
+import Head from '@/components/Head';
+import Header from '@/components/Header';
+import Loading from '@/components/Loading';
+import { fetcher } from '@/lib/fetcher';
 
 export default function Layout({ children }: ReactProps) {
   // TODO: save state

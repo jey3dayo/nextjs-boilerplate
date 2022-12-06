@@ -1,9 +1,9 @@
 import type { NextPageWithLayout } from 'next';
 import Image from 'next/image';
 import { useState } from 'react';
-import Layout from 'src/components/Layout';
-import Provider from 'src/components/Provider';
-import styles from 'src/styles/Example.module.css';
+import Layout from '@/components/Layout';
+import Provider from '@/components/Provider';
+import styles from '@/styles/Example.module.css';
 
 const Example: NextPageWithLayout = () => {
   const [vol, setVol] = useState(50);
