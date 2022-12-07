@@ -1,7 +1,6 @@
 import useSWR from 'swr';
 import { ReactProps } from '@/@types/index';
 import Footer from '@/components/Footer';
-import Head from '@/components/Head';
 import Header from '@/components/Header';
 import Loading from '@/components/Loading';
 import { fetcher } from '@/lib/fetcher';
@@ -13,7 +12,6 @@ export default function Layout({ children }: ReactProps) {
 
   return (
     <>
-      <Head />
       <Header />
       {data ? children : <Loading />}
       <Footer />
