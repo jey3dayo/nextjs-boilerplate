@@ -21,6 +21,7 @@
     "next.js",
     "tailwindcss",
     "recoil",
+    "swr",
     "eslint",
     "prettier"
   ],
