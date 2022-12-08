@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 import { RecoilRoot, useRecoilState } from 'recoil';
 import useSWR from 'swr';
 import { isLoadedState } from '@/atoms/appAtom';
@@ -13,16 +13,18 @@ export default function StateProvider({ children }: { children: ReactNode }) {
 }
 
 function Initializer({ children }: { children: ReactNode }) {
-  const [_, setupCompleted] = useRecoilState(isLoadedState);
-  const [__, setUser] = useRecoilState<User | null | undefined>(userState);
+  const [, setupCompleted] = useRecoilState(isLoadedState);
+  const [, setUser] = useRecoilState<User | null | undefined>(userState);
   const { data, error } = useSWR('/api/init');
 
-  if (error) return <div>Failed to load</div>;
+  useEffect(() => {
+    if (data) {
+      setUser(data.user);
+      setupCompleted(true);
+    }
+  }, [data, setUser, setupCompleted]);
 
-  if (data) {
-    setUser(data.user);
-    setupCompleted(true);
-  }
+  if (error) return <div>Failed to load</div>;
 
   return <>{children}</>;
 }

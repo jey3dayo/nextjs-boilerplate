@@ -1,9 +1,9 @@
-import { useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { userState } from '@/atoms/userAtom';
 import { appName } from '@/config';
 
 export default function Header() {
-  const [user] = useRecoilState(userState);
+  const user = useRecoilValue(userState);
   return (
     <div className={'flex'}>
       <div className="flex-none bg-primary p-2 text-secondary">{appName}</div>
