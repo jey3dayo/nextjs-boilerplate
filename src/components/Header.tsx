@@ -1,14 +1,30 @@
-import { useRecoilValue } from 'recoil';
-import { userState } from '@/atoms/userAtom';
+import Link from 'next/link';
 import { appName } from '@/config';
 
+const contents = [
+  { name: 'Home', link: '/' },
+  { name: 'content1', link: '/example' },
+  { name: 'content2', link: '/example' },
+];
+
 export default function Header() {
-  const user = useRecoilValue(userState);
   return (
-    <div className={'flex'}>
-      <div className="flex-none bg-primary p-2 text-secondary">{appName}</div>
-      <div className="flex-1 bg-secondary p-2 text-secondary">{appName}</div>
-      <div className={'flex-none bg-primary p-2 text-right text-secondary'}>wlecome {user?.name ?? ''}.</div>
-    </div>
+    <nav className="flex">
+      <div className="m-5 flex-none text-2xl font-bold text-secondary sm:flex-1 md:flex-1 lg:flex-1 xl:flex-1">
+        <Link href="/">
+          <div className="p-4">{appName}</div>
+        </Link>
+      </div>
+
+      <div className="m-5 flex-initial font-bold text-[#abc5c5] ">
+        <ul className="hidden flex-initial text-left md:flex">
+          {contents.map((value, i) => (
+            <li key={i} className="p-4">
+              <Link href={value.link}>{value.name}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
   );
 }
