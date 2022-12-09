@@ -11,6 +11,9 @@ const Example: NextPageWithLayout = () => {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
+        <div className="hidden text-blue-600 lg:block">large</div>
+        <div className="hidden text-blue-600 md:block">medium</div>
+        <div className="hidden text-blue-600 sm:block">small</div>
         <div className="dark: space-y-8 bg-gray-900 md:p-2">
           <div className="w-96 rounded shadow">
             <label htmlFor="default-range" className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
