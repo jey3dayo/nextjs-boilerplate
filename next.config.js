@@ -8,6 +8,16 @@ const nextConfig = {
     env: NODE_ENV,
     appName: APP_NAME,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'tailwindui.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;

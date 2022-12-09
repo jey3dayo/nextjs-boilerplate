@@ -3,12 +3,7 @@ const defaultSize = 8;
 export function Logo(props: any) {
   const size = props?.size ?? defaultSize;
   return (
-    <svg
-      {...props}
-      className={`mr-2 h-${size} w-${size} fill-current`}
-      viewBox="0 0 54 54"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg {...props} className={`mr-2 h-${size} w-${size}`} viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg">
       <path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" />
     </svg>
   );
