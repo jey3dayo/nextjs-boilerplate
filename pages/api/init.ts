@@ -7,7 +7,7 @@ type Response = {
 
 const init = async (_: NextApiRequest, res: NextApiResponse<Response>) => {
   console.log('data loading');
-  await sleep(2000);
+  await sleep(3000);
   console.log('done');
   res.status(200).json({
     user: {

@@ -2,6 +2,9 @@ import { Menu, Transition, Popover } from '@headlessui/react';
 import { UserIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/20/solid';
 import Link from 'next/link';
 import { Fragment } from 'react';
+// import { useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
+import { userState } from '@/atoms/userAtom';
 import { Logo } from '@/components/Svg';
 import { appName } from '@/config';
 import classNames from '@/lib/classNames';
@@ -25,6 +28,9 @@ const profileNavigation: Navigation[] = [
 ];
 
 export default function Header() {
+  // const user = useRecoilValue(userState);
+  const [user, setUser] = useRecoilState(userState);
+
   return (
     <nav className="flex flex-wrap items-center justify-between bg-primary p-3">
       <Link href="/">
@@ -121,7 +127,7 @@ export default function Header() {
             </Link>
           ))}
         </div>
-
+        <div>{user?.name ? `こんにちは${user.name}さん` : null}</div>
         <Menu as="div" className="relative ml-3">
           <Menu.Button className="flex rounded-full bg-teal-400 text-sm focus:outline-none focus:ring-2 focus:ring-teal-300 focus:ring-offset-2 focus:ring-offset-teal-800">
             <span className="sr-only">ユーザメニュー</span>
