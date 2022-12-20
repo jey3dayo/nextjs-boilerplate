@@ -3,6 +3,7 @@ import { sleep } from '@/lib/sleep';
 
 type Response = {
   user: User;
+  params?: any;
 };
 
 const init = async (_: NextApiRequest, res: NextApiResponse<Response>) => {
@@ -13,6 +14,9 @@ const init = async (_: NextApiRequest, res: NextApiResponse<Response>) => {
     user: {
       email: 'example@example.com',
       name: 'John Doe',
+    },
+    params: {
+      vol: 30,
     },
   });
 };

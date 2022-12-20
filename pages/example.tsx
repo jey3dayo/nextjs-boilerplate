@@ -1,12 +1,23 @@
 import type { NextPageWithLayout } from 'next';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import useSWR from 'swr';
 import Layout from '@/components/Layout';
 import Provider from '@/components/Provider';
 import styles from '@/styles/Example.module.css';
 
 const Example: NextPageWithLayout = () => {
+  const [action, setAction] = useState('');
+  const [text, setText] = useState('');
   const [vol, setVol] = useState(50);
+  const { data } = useSWR('/api/init');
+
+  useEffect(() => {
+    if (data) {
+      setText(data.user.name);
+      setVol(data.params.vol);
+    }
+  }, [data, setText]);
 
   return (
     <div className={styles.container}>
@@ -16,23 +27,55 @@ const Example: NextPageWithLayout = () => {
         <div className="hidden text-blue-600 sm:block">small</div>
         <div className="dark: space-y-8 bg-gray-900 md:p-2">
           <div className="w-96 rounded shadow">
-            <label htmlFor="default-range" className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-              Volume
-            </label>
-            <input
-              id="default-range"
-              type="range"
-              value={vol}
-              onChange={({ target }) => {
-                const v = Number(target?.value ?? 0);
-                setVol(v);
-              }}
-              className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-200 dark:bg-gray-700"
-            />
+            <div className="py-4">
+              <div className="mb-4">
+                <label className="mb-2 block text-sm font-bold" htmlFor="text">
+                  Text
+                </label>
+                <div>text: {text}</div>
+                <input
+                  className="w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none"
+                  id="text"
+                  type="text"
+                  placeholder="Text"
+                  value={text}
+                  onChange={({ target: { value } }) => setText(value)}
+                  // onChange={({ target }) => {
+                  //   const v = target?.value ?? '';
+                  //   setText(v);
+                  // }}
+                />
+              </div>
+            </div>
 
+            <div className="py-4">
+              <label
+                htmlFor="default-range"
+                className="mb-2 block space-y-4 text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Volume
+              </label>
+              <div>vol: {vol}</div>
+              <input
+                id="default-range"
+                type="range"
+                value={vol}
+                onChange={({ target }) => {
+                  const v = Number(target?.value ?? 0);
+                  setVol(v);
+                }}
+                className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-200 dark:bg-gray-700"
+              />
+            </div>
+
+            <div>action: {action}</div>
             <div className="grid w-96 grid-cols-2 gap-x-6">
-              <button className={[styles.btn, styles['btn--secondary']].join(' ')}>Decline</button>
-              <button className={[styles.btn, styles['btn--primary']].join(' ')}>Accept</button>
+              <button onClick={() => setAction('Decline')} className={[styles.btn, styles['btn--secondary']].join(' ')}>
+                Decline
+              </button>
+              <button onClick={() => setAction('Accept')} className={[styles.btn, styles['btn--primary']].join(' ')}>
+                Accept
+              </button>
             </div>
           </div>
 
