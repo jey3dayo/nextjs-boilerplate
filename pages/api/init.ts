@@ -16,7 +16,7 @@ const init = async (_: NextApiRequest, res: NextApiResponse<Response>) => {
       name: 'John Doe',
     },
     params: {
-      vol: 30,
+      vol: 90,
     },
   });
 };

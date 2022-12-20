@@ -6,10 +6,15 @@ import Layout from '@/components/Layout';
 import Provider from '@/components/Provider';
 import styles from '@/styles/Example.module.css';
 
+const DEFAULT_VOL = 50;
+const DEFAULT_DESCRIPTION =
+  "Tailwind CSS is the only framework that I've seen scale on large teams.It’s easy to customize, adapts to any design, and the build size is tiny.";
+
 const Example: NextPageWithLayout = () => {
   const [action, setAction] = useState('');
   const [text, setText] = useState('');
-  const [vol, setVol] = useState(50);
+  const [description, setDescription] = useState(DEFAULT_DESCRIPTION);
+  const [vol, setVol] = useState(DEFAULT_VOL);
   const { data } = useSWR('/api/init');
 
   useEffect(() => {
@@ -17,7 +22,7 @@ const Example: NextPageWithLayout = () => {
       setText(data.user.name);
       setVol(data.params.vol);
     }
-  }, [data, setText]);
+  }, [data]);
 
   return (
     <div className={styles.container}>
@@ -32,7 +37,6 @@ const Example: NextPageWithLayout = () => {
                 <label className="mb-2 block text-sm font-bold" htmlFor="text">
                   Text
                 </label>
-                <div>text: {text}</div>
                 <input
                   className="w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none"
                   id="text"
@@ -44,6 +48,22 @@ const Example: NextPageWithLayout = () => {
                   //   const v = target?.value ?? '';
                   //   setText(v);
                   // }}
+                />
+              </div>
+            </div>
+
+            <div className="py-4">
+              <div className="mb-4">
+                <label className="mb-2 block text-sm font-bold" htmlFor="text">
+                  Description
+                </label>
+                <input
+                  className="w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none"
+                  id="text"
+                  type="text"
+                  placeholder="Text"
+                  value={description}
+                  onChange={({ target: { value } }) => setDescription(value)}
                 />
               </div>
             </div>
@@ -90,13 +110,10 @@ const Example: NextPageWithLayout = () => {
             />
             <div className="space-y-4 pt-6 text-center md:p-8 md:text-left">
               <blockquote>
-                <p className="text-lg font-medium">
-                  “Tailwind CSS is the only framework that I&apos;ve seen scale on large teams. It’s easy to customize,
-                  adapts to any design, and the build size is tiny.”
-                </p>
+                <p className="text-lg font-medium">{description}</p>
               </blockquote>
               <figcaption className="font-medium">
-                <div className="text-sky-500 dark:text-sky-400">Sarah Dayan</div>
+                <div className="text-sky-500 dark:text-sky-400">{text}</div>
                 <div className="text-slate-700 dark:text-slate-500">Staff Engineer, Algolia</div>
               </figcaption>
             </div>
