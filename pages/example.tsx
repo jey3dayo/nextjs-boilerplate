@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import useSWR from 'swr';
 import Layout from '@/components/Layout';
 import Provider from '@/components/Provider';
+import { fetcher } from '@/lib/fetcher';
 import styles from '@/styles/Example.module.css';
 
 const DEFAULT_VOL = 50;
@@ -15,7 +16,7 @@ const Example: NextPageWithLayout = () => {
   const [text, setText] = useState('');
   const [description, setDescription] = useState(DEFAULT_DESCRIPTION);
   const [vol, setVol] = useState(DEFAULT_VOL);
-  const { data } = useSWR('/api/init');
+  const { data } = useSWR('/api/init', fetcher);
 
   useEffect(() => {
     if (data) {
@@ -44,10 +45,10 @@ const Example: NextPageWithLayout = () => {
                   placeholder="Text"
                   value={text}
                   onChange={({ target: { value } }) => setText(value)}
-                  // onChange={({ target }) => {
-                  //   const v = target?.value ?? '';
-                  //   setText(v);
-                  // }}
+                // onChange={({ target }) => {
+                //   const v = target?.value ?? '';
+                //   setText(v);
+                // }}
                 />
               </div>
             </div>
