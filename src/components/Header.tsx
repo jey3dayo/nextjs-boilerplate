@@ -2,8 +2,7 @@ import { Menu, Transition, Popover } from '@headlessui/react';
 import { UserIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/20/solid';
 import Link from 'next/link';
 import { Fragment } from 'react';
-// import { useRecoilValue } from 'recoil';
-import { useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { userState } from '@/atoms/userAtom';
 import { Logo } from '@/components/Svg';
 import { appName } from '@/config';
@@ -28,11 +27,11 @@ const profileNavigation: Navigation[] = [
 ];
 
 export default function Header() {
-  // const user = useRecoilValue(userState);
-  const [user, setUser] = useRecoilState(userState);
+  // const [user, setUser] = useRecoilState(userState);
+  const user = useRecoilValue(userState);
 
   return (
-    <nav className="flex flex-wrap items-center justify-between bg-primary p-3">
+    <nav className="flex flex-wrap items-center justify-between bg-primary p-3 @container">
       <Link href="/">
         <div className="mr-6 flex shrink-0 items-center text-white">
           <span className="fill-current">
@@ -41,11 +40,10 @@ export default function Header() {
           <span className="text-xl font-semibold tracking-tight">{appName}</span>
         </div>
       </Link>
-
       <Popover>
         {({ open }) => (
           <>
-            <div className="block md:hidden lg:hidden">
+            <div className="@md:hidden">
               <Popover.Button
                 className={classNames(
                   open ? 'bg-teal-400' : '',
@@ -66,10 +64,7 @@ export default function Header() {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Popover.Panel
-                focus
-                className="absolute top-0 left-0 w-full origin-top-right p-2 transition md:hidden lg:hidden"
-              >
+              <Popover.Panel focus className="absolute top-0 left-0 w-full origin-top-right p-2 transition @md:hidden">
                 <div className="divide-y-2 divide-gray-50 rounded-lg bg-teal-50 shadow-lg ring-1 ring-black/5">
                   <div className="px-5 pt-5 pb-6">
                     <div className="flex items-center justify-between">
@@ -114,7 +109,7 @@ export default function Header() {
         )}
       </Popover>
 
-      <div className="hidden w-full grow md:flex md:w-auto md:items-center lg:flex lg:w-auto lg:items-center">
+      <div className="hidden w-full grow @md:flex @md:w-auto @md:items-center">
         <div className="grow text-lg">
           {navigation.map((v, i) => (
             <Link
