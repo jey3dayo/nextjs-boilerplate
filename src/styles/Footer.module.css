@@ -1,10 +1,5 @@
 .footer {
-  display: flex;
-  flex: 1;
-  padding: 1rem 0;
   border-top: 0.1px solid var(--border-color-black);
-  justify-content: center;
-  align-items: center;
 }
 
 @media (prefers-color-scheme: dark) {

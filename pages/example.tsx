@@ -45,10 +45,10 @@ const Example: NextPageWithLayout = () => {
                   placeholder="Text"
                   value={text}
                   onChange={({ target: { value } }) => setText(value)}
-                // onChange={({ target }) => {
-                //   const v = target?.value ?? '';
-                //   setText(v);
-                // }}
+                  // onChange={({ target }) => {
+                  //   const v = target?.value ?? '';
+                  //   setText(v);
+                  // }}
                 />
               </div>
             </div>
