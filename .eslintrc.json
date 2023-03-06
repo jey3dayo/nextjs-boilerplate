@@ -7,7 +7,7 @@
     "plugin:import/warnings"
   ],
   "plugins": ["tailwindcss"],
-  "ignorePatterns": ["*.config.js"],
+  "ignorePatterns": ["*.config.js", "src/components/Svg.tsx"],
   "rules": {
     "import/order": [
       "error",

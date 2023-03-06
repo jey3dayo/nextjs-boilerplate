@@ -10,8 +10,9 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "prettier": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json,css}'",
-    "format": "yarn lint:fix && yarn prettier"
+    "prettier": "prettier --write --ignore-path .prettierignore './**/*.{js,jsx,ts,tsx,json,css}'",
+    "format": "yarn lint:fix && yarn prettier",
+    "depcruise": "depcruise -v .dependency-cruiser.js '{./src,./pages}'"
   },
   "author": "https://github.com/jey3dayo/attendance-record",
   "license": "UNLICENSED",
@@ -29,30 +30,31 @@
   ],
   "devDependencies": {
     "autoprefixer": "^10.4.13",
-    "eslint": "8.34.0",
-    "eslint-config-next": "13.1.6",
+    "dependency-cruiser": "^12.10.0",
+    "eslint": "8.35.0",
+    "eslint-config-next": "13.2.3",
     "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-tailwindcss": "^3.8.3",
+    "eslint-plugin-tailwindcss": "^3.10.1",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.21",
     "postcss-color-function": "^4.1.0",
     "prettier": "^2.8.4",
-    "prettier-plugin-tailwindcss": "^0.2.3",
-    "tailwindcss": "^3.2.6"
+    "prettier-plugin-tailwindcss": "^0.2.4"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.11",
-    "@heroicons/react": "^2.0.15",
+    "@headlessui/react": "^1.7.13",
+    "@heroicons/react": "^2.0.16",
     "@tailwindcss/container-queries": "^0.1.0",
-    "@types/node": "18.13.0",
+    "@types/node": "18.14.6",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
-    "next": "13.1.6",
+    "next": "13.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-loader-spinner": "^5.3.4",
-    "recoil": "^0.7.6",
-    "swr": "^2.0.3",
-    "typescript": "4.9.5"
+    "recoil": "^0.7.7",
+    "swr": "^2.0.4",
+    "typescript": "4.9.5",
+    "tailwindcss": "^3.2.7"
   }
 }
